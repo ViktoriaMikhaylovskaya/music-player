@@ -1,7 +1,8 @@
 import WaveSurfer from 'wavesurfer.js';
-import { musicList } from './constants';
+import { musicList } from './music-list';
 
 const posterNode = document.querySelector('.music-img');
+const musicInfoNode = document.querySelector('.music-info');
 const audioNode = document.querySelector('audio');
 
 const prevMusicButton = document.querySelector('.prev-music');
@@ -20,10 +21,11 @@ const wavesurfer = WaveSurfer.create({
 
 const createMusicCard = (musicInfo) => {
     wavesurfer.setMuted(true);
-    wavesurfer.load(musicInfo.music);
+    wavesurfer.load(`/audio/audio${musicInfo.id}.mp3`);
 
-    audioNode.src = musicInfo.music;
-    posterNode.src = musicInfo.img;
+    audioNode.src = musicInfo.src;
+    posterNode.src = musicInfo.preview;
+    musicInfoNode.textContent = `${musicInfo.title} - ${musicInfo.artists}`;
 };
 
 wavesurfer.on('interaction', (newTime) => {
@@ -47,9 +49,7 @@ const initPlayer = () => {
     });
 
     prevMusicButton.addEventListener('click', () => {
-        console.log('-',currentMusic);
         currentMusic--;
-        console.log('-',currentMusic);
         createMusicCard(musicList[currentMusic]);
         if (currentMusic === 0) {
             prevMusicButton.disabled = true;
@@ -61,9 +61,7 @@ const initPlayer = () => {
     });
 
     nextMusicButton.addEventListener('click', () => {
-        console.log('+',currentMusic);
         currentMusic++;
-        console.log('+',currentMusic);
         if (currentMusic === musicList.length - 1) {
             nextMusicButton.disabled = true;
             prevMusicButton.disabled = false;
