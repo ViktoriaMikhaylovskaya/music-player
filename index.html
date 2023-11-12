@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Music player</title>
+  </head>
+  <body>
+    <div id="app">
+      <div class="content">
+        <div class="card">
+          <div>
+            <img class="music-img" src="" alt="" />
+          </div>
+          <audio controls src="/audio/september.mp3"></audio>
+
+          <div class="buttons-wrapper">
+            <button class="prev-music" disabled>
+              <img src="/images/next.png" alt="" />
+            </button>
+            <button class="next-music">
+              <img src="/images/next.png" alt="" />
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="waveform-wrapper">
+        <div id="waveform"></div>
+      </div>
+    </div>
+    <script type="module" src="/main.js"></script>
+  </body>
+</html>
