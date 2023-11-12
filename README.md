@@ -1,7 +1,6 @@
 Музыкальный плеер с визуализацией.
 
-Готовый результат:
-- music-player-mu-bay.vercel.app
+Готовый результат: https://music-player-mu-bay.vercel.app/
 
 Запуск локально:
 
