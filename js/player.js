@@ -21,7 +21,7 @@ const wavesurfer = WaveSurfer.create({
 
 const createMusicCard = (musicInfo) => {
     wavesurfer.setMuted(true);
-    wavesurfer.load(`./audio/audio${musicInfo.id}.mp3`);
+    wavesurfer.load(`../audio/audio${musicInfo.id}.mp3`);
 
     audioNode.src = musicInfo.src;
     posterNode.src = musicInfo.preview;
